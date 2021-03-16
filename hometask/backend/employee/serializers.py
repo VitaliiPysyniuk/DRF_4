@@ -6,12 +6,10 @@ from .models import EmployeeModel
 class EmployeeSerializer(ModelSerializer):
     class Meta:
         model = EmployeeModel
-        fields = ['id', 'name', 'surname', 'age', 'email', 'profession', 'is_employed',
+        fields = ['id', 'name', 'surname', 'age', 'profession', 'is_employed',
                   'company']
-        read_only_fields = ['company']
 
     def create(self, validated_data):
         employee = EmployeeModel.objects.create(**validated_data)
         employee.save()
         return employee
-

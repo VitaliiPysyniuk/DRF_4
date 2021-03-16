@@ -12,7 +12,7 @@ class EmployeeModel(models.Model):
     surname = models.CharField(max_length=20)
     profession = models.CharField(max_length=25)
     age = models.IntegerField()
-    is_employed = models.BooleanField()
+    is_employed = models.BooleanField(default=False)
     company = models.ForeignKey(CompanyModel, on_delete=models.SET_DEFAULT, default='', null=True, related_name='employees')
 
     objects = EmployeeManager()
